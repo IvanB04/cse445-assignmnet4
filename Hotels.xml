@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
-  
   <Hotel Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
@@ -14,7 +13,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.5">
     <Name>Hilton Garden Inn</Name>
     <Phone>480-752-2020</Phone>
@@ -28,7 +26,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel>
     <Name>Courtyard by Marriott</Name>
     <Phone>480-966-2101</Phone>
@@ -41,7 +38,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.7">
     <Name>JW Marriott Phoenix Desert Ridge</Name>
     <Phone>480-293-5000</Phone>
@@ -55,7 +51,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel>
     <Name>Hampton Inn Phoenix Airport North</Name>
     <Phone>602-244-3505</Phone>
@@ -68,7 +63,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.3">
     <Name>Sheraton Phoenix Downtown</Name>
     <Phone>602-262-2500</Phone>
@@ -83,7 +77,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.6">
     <Name>The Phoenician</Name>
     <Phone>480-941-8200</Phone>
@@ -97,7 +90,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel>
     <Name>Hyatt Regency Scottsdale</Name>
     <Phone>480-444-1234</Phone>
@@ -110,7 +102,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.8">
     <Name>Arizona Biltmore</Name>
     <Phone>602-955-6600</Phone>
@@ -124,7 +115,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.1">
     <Name>Embassy Suites Phoenix Tempe</Name>
     <Phone>480-897-7444</Phone>
@@ -138,7 +128,6 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.4">
     <Name>Renaissance Phoenix Downtown</Name>
     <Phone>602-333-0000</Phone>
@@ -151,5 +140,4 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
 </Hotels>
