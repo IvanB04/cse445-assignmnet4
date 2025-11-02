@@ -17,10 +17,9 @@ namespace ConsoleApp1
 {
     public class Program
     {
-        // Replace YourASURITEID with your actual ASURITE ID
-        public static string xmlURL = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/Hotels.xml";
-        public static string xmlErrorURL = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/HotelsErrors.xml";
-        public static string xsdURL = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/Hotels.xsd";
+        public static string xmlURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/Hotels.xml";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/HotelsErrors.xml";
+        public static string xsdURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/Hotels.xsd";
 
         public static void Main(string[] args)
         {
@@ -72,10 +71,15 @@ namespace ConsoleApp1
                 settings.ValidationEventHandler += (sender, e) =>
                 {
                     hasErrors = true;
-                    errorMessages.AppendLine($"Validation Error: {e.Message}");
+                    if (errorMessages.Length > 0)
+                    {
+                        errorMessages.AppendLine(); // Add newline between errors
+                    }
+                    errorMessages.Append($"Validation Error: {e.Message}");
                     if (e.Exception != null)
                     {
-                        errorMessages.AppendLine($"Line: {e.Exception.LineNumber}, Position: {e.Exception.LinePosition}");
+                        errorMessages.AppendLine();
+                        errorMessages.Append($"Line: {e.Exception.LineNumber}, Position: {e.Exception.LinePosition}");
                     }
                 };
 
@@ -89,7 +93,7 @@ namespace ConsoleApp1
                 // Return result
                 if (hasErrors)
                 {
-                    return errorMessages.ToString().TrimEnd();
+                    return errorMessages.ToString();
                 }
                 else
                 {
@@ -98,7 +102,7 @@ namespace ConsoleApp1
             }
             catch (Exception ex)
             {
-                return $"Error during validation: {ex.Message}";
+                return $"Validation Error: {ex.Message}";
             }
         }
 
