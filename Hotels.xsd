@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <!-- Root element -->
+  <xs:element name="Hotels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Hotel" type="HotelType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Hotel complex type -->
+  <xs:complexType name="HotelType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="Phone" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="Address" type="AddressType"/>
+    </xs:sequence>
+    <!-- Rating is an optional attribute -->
+    <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
+  </xs:complexType>
+  
+  <!-- Address complex type -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Number" type="xs:string"/>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="Zip" type="xs:string"/>
+      <xs:element name="NearestAirport" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>
