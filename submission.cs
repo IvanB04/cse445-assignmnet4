@@ -23,22 +23,12 @@ namespace ConsoleApp1
 
         public static void Main(string[] args)
         {
-            // Test 1: Verify valid XML
-            
             string result = Verification(xmlURL, xsdURL);
-            Console.WriteLine(result);
-            Console.WriteLine();
-
-            // Test 2: Verify XML with errors
-            
-            result = Verification(xmlErrorURL, xsdURL);
-            Console.WriteLine(result);
-            Console.WriteLine();
-
-            // Test 3: Convert XML to JSON
-            
-            result = Xml2Json(xmlURL);
-            Console.WriteLine(result);
+Console.WriteLine(result);
+result = Verification(xmlErrorURL, xsdURL);
+Console.WriteLine(result);
+result = Xml2Json("Hotels.xml");
+Console.WriteLine(result);
         }
 
         // Q2.1 - Validates XML against XSD schema
