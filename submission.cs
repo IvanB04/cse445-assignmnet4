@@ -144,31 +144,34 @@ namespace ConsoleApp1
                     jsonBuilder.AppendLine("        ],");
 
                     // Address
-                    XmlNode addressNode = hotel.SelectSingleNode("Address");
-                    if (addressNode != null)
-                    {
-                        jsonBuilder.AppendLine("        \"Address\": {");
-                        
-                        string number = addressNode.SelectSingleNode("Number")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"Number\": \"{EscapeJson(number)}\",");
-                        
-                        string street = addressNode.SelectSingleNode("Street")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"Street\": \"{EscapeJson(street)}\",");
-                        
-                        string city = addressNode.SelectSingleNode("City")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"City\": \"{EscapeJson(city)}\",");
-                        
-                        string state = addressNode.SelectSingleNode("State")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"State\": \"{EscapeJson(state)}\",");
-                        
-                        string zip = addressNode.SelectSingleNode("Zip")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"Zip\": \"{EscapeJson(zip)}\",");
-                        
-                        string airport = addressNode.SelectSingleNode("NearestAirport")?.InnerText;
-                        jsonBuilder.AppendLine($"          \"NearestAirport\": \"{EscapeJson(airport)}\"");
-                        
-                        jsonBuilder.Append("        }");
-                    }
+                    // Address
+XmlNode addressNode = hotel.SelectSingleNode("Address");
+if (addressNode != null)
+{
+    jsonBuilder.AppendLine("        \"Address\": {");
+    
+    string number = addressNode.SelectSingleNode("Number")?.InnerText;
+    jsonBuilder.AppendLine($"          \"Number\": \"{EscapeJson(number)}\",");
+    
+    string street = addressNode.SelectSingleNode("Street")?.InnerText;
+    jsonBuilder.AppendLine($"          \"Street\": \"{EscapeJson(street)}\",");
+    
+    string city = addressNode.SelectSingleNode("City")?.InnerText;
+    jsonBuilder.AppendLine($"          \"City\": \"{EscapeJson(city)}\",");
+    
+    string state = addressNode.SelectSingleNode("State")?.InnerText;
+    jsonBuilder.AppendLine($"          \"State\": \"{EscapeJson(state)}\",");
+    
+    string zip = addressNode.SelectSingleNode("Zip")?.InnerText;
+    jsonBuilder.AppendLine($"          \"Zip\": \"{EscapeJson(zip)}\",");
+    
+    // NearestAirport is now an ATTRIBUTE, not an element
+    XmlAttribute airportAttr = addressNode.Attributes["NearestAirport"];
+    string airport = airportAttr?.Value;
+    jsonBuilder.AppendLine($"          \"NearestAirport\": \"{EscapeJson(airport)}\"");
+    
+    jsonBuilder.Append("        }");
+}
 
                     // Rating attribute (optional)
                     XmlAttribute ratingAttr = hotel.Attributes["Rating"];
@@ -224,3 +227,4 @@ namespace ConsoleApp1
         }
     }
 }
+
