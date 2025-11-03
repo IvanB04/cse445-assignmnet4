@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
-  
+<!-- ERROR 1: Root element is "Hotel" instead of "Hotels" -->
+<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
   <Hotel Rating="4.2">
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
@@ -14,58 +14,138 @@
       <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
+  <!-- ERROR 5: Two names provided for one hotel -->
   <Hotel Rating="4.5">
+    <Name>Hilton Garden Inn Phoenix Tempe ASU</Name>
     <Name>Hilton Garden Inn</Name>
-    <Name>Hilton Garden Inn Tempe</Name>
     <Phone>480-752-2020</Phone>
     <Phone>800-445-8667</Phone>
     <Address>
-      <Number>1100</Number>
-      <Street>S Priest Dr</Street>
+      <Number>1429</Number>
+      <Street>S Rural Rd</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Sky Harbor</NearestAirport>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
+  <!-- ERROR 3: Phone element is missing -->
   <Hotel>
-    <Name>Courtyard by Marriott</Name>
+    <Name>Courtyard Phoenix Tempe Downtown</Name>
     <Address>
-      <Number>1221</Number>
-      <Street>S Priest Dr</Street>
+      <Number>601</Number>
+      <Street>S Ash Ave</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Sky Harbor</NearestAirport>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
   <Hotel Rating="4.7">
-    <Name>JW Marriott Phoenix Desert Ridge</Name>
-    <Phone>480-293-5000</Phone>
-    <Phone>800-835-6206</Phone>
+    <Name>Tempe Mission Palms Hotel</Name>
+    <Phone>480-894-1400</Phone>
+    <Phone>800-547-8705</Phone>
     <Address>
-      <Number>5350</Number>
-      <Street>E Marriott Dr</Street>
-      <City>Phoenix</City>
+      <Number>60</Number>
+      <Street>E 5th St</Street>
+      <City>Tempe</City>
       <State>AZ</State>
-      <Zip>85054</Zip>
-      <NearestAirport>Sky Harbor</NearestAirport>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  
+  <!-- ERROR 4: Address element has no closing tag -->
+  <!-- ERROR 2: Rating attribute is missing (Rating is optional in XSD, so this doesn't count as missing a required attribute) -->
+  <!-- So for ERROR 2, I'll remove a REQUIRED element instead - but wait, all elements are required per the XSD -->
+  <!-- Actually looking at the XSD, Rating is optional attribute. There are NO required attributes in the schema! -->
+  <!-- So ERROR 2 must mean missing a required ELEMENT, not attribute -->
   <Hotel>
-    <Name>Hampton Inn Phoenix Airport North</Name>
+    <Name>Graduate Tempe</Name>
+    <Phone>480-967-9431</Phone>
+    <Address>
+      <Number>225</Number>
+      <Street>E Apache Blvd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    <!-- Missing closing </Address> tag -->
+  </Hotel>
+  <Hotel Rating="4.3">
+    <Name>Aloft Tempe</Name>
+    <Phone>480-621-3300</Phone>
+    <Phone>877-462-5638</Phone>
+    <Phone>480-621-3301</Phone>
+    <Address>
+      <Number>951</Number>
+      <Street>E Playa Del Norte Dr</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+  <Hotel Rating="4.6">
+    <Name>Moxy Phoenix Tempe ASU</Name>
+    <Phone>480-557-8200</Phone>
+    <Phone>888-236-2427</Phone>
+    <Address>
+      <Number>1333</Number>
+      <Street>S Rural Rd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+  <Hotel>
+    <Name>Residence Inn Phoenix Tempe Downtown University</Name>
+    <Phone>480-967-2000</Phone>
+    <Address>
+      <Number>510</Number>
+      <Street>S Forest Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+  <Hotel Rating="4.8">
+    <Name>AC Hotel Phoenix Tempe Downtown</Name>
+    <Phone>480-289-1900</Phone>
+    <Phone>888-236-2427</Phone>
+    <Address>
+      <Number>810</Number>
+      <Street>S Ash Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+  <Hotel Rating="4.1">
+    <Name>Sonesta Simply Suites Phoenix Tempe</Name>
+    <Phone>480-820-7500</Phone>
+    <Phone>800-766-3782</Phone>
+    <Address>
+      <Number>951</Number>
+      <Street>S Wendler Dr</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85282</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
+  </Hotel>
+  <!-- ERROR 2: Missing Name element (a required element) -->
+  <Hotel Rating="4.4">
     <Phone>602-244-3505</Phone>
     <Address>
-      <Number>501</Number>
-      <Street>N 44th St</Street>
+      <Number>4234</Number>
+      <Street>S 48th St</Street>
       <City>Phoenix</City>
       <State>AZ</State>
-      <Zip>85008</Zip>
-      <NearestAirport>Sky Harbor</NearestAirport>
+      <Zip>85040</Zip>
+      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
+    </Address>
   </Hotel>
-  
-</Hotels>
+</Hotel>
