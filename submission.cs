@@ -21,14 +21,20 @@ namespace ConsoleApp1
         public static string xmlErrorURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/HotelsErrors.xml";
         public static string xsdURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/Hotels.xsd";
 
-        public static void Main(string[] args)
+        
+    public static void Main(string[] args)
         {
+            // Test 1: Verify valid XML
             string result = Verification(xmlURL, xsdURL);
-Console.WriteLine(result);
-result = Verification(xmlErrorURL, xsdURL);
-Console.WriteLine(result);
-result = Xml2Json("Hotels.xml");
-Console.WriteLine(result);
+            Console.WriteLine(result);
+
+            // Test 2: Verify XML with errors
+            result = Verification(xmlErrorURL, xsdURL);
+            Console.WriteLine(result);
+
+            // Test 3: Convert XML to JSON
+            result = Xml2Json(xmlURL);
+            Console.WriteLine(result);
         }
 
         // Q2.1 - Validates XML against XSD schema
@@ -53,23 +59,21 @@ Console.WriteLine(result);
                     settings.Schemas.Add(schema);
                 }
 
-                // Variable to capture validation errors
-                StringBuilder errorMessages = new StringBuilder();
-                bool hasErrors = false;
+                // Use a local variable (not global) to capture validation errors
+                string errorMessage = string.Empty;
 
                 // Set up validation event handler
                 settings.ValidationEventHandler += (sender, e) =>
                 {
-                    hasErrors = true;
-                    if (errorMessages.Length > 0)
+                    if (!string.IsNullOrEmpty(errorMessage))
                     {
-                        errorMessages.AppendLine(); // Add newline between errors
+                        errorMessage += Environment.NewLine;
                     }
-                    errorMessages.Append($"Validation Error: {e.Message}");
+                    errorMessage += "Validation Error: " + e.Message;
                     if (e.Exception != null)
                     {
-                        errorMessages.AppendLine();
-                        errorMessages.Append($"Line: {e.Exception.LineNumber}, Position: {e.Exception.LinePosition}");
+                        errorMessage += Environment.NewLine;
+                        errorMessage += "Line: " + e.Exception.LineNumber + ", Position: " + e.Exception.LinePosition;
                     }
                 };
 
@@ -81,18 +85,18 @@ Console.WriteLine(result);
                 }
 
                 // Return result
-                if (hasErrors)
+                if (string.IsNullOrEmpty(errorMessage))
                 {
-                    return errorMessages.ToString();
+                    return "No errors are found";
                 }
                 else
                 {
-                    return "No errors are found";
+                    return errorMessage;
                 }
             }
             catch (Exception ex)
             {
-                return $"Validation Error: {ex.Message}";
+                return "Validation Error: " + ex.Message;
             }
         }
 
