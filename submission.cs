@@ -23,15 +23,19 @@ namespace ConsoleApp1
 
         public static void Main(string[] args)
         {
-            // Test 1: Verify valid XML
+            Console.WriteLine("=== Testing Valid XML ===");
             string result = Verification(xmlURL, xsdURL);
             Console.WriteLine(result);
+            Console.WriteLine();
 
             // Test 2: Verify XML with errors
+            Console.WriteLine("=== Testing XML with Errors ===");
             result = Verification(xmlErrorURL, xsdURL);
             Console.WriteLine(result);
+            Console.WriteLine();
 
             // Test 3: Convert XML to JSON
+            Console.WriteLine("=== Converting XML to JSON ===");
             result = Xml2Json(xmlURL);
             Console.WriteLine(result);
         }
@@ -225,3 +229,4 @@ namespace ConsoleApp1
         }
     }
 }
+
