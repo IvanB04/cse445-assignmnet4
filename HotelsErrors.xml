@@ -5,13 +5,12 @@
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
-    <Address>
+    <Address NearestAirport="Sky Harbor">
       <Number>11</Number>
       <Street>E 7th St</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <!-- ERROR 5: Two names provided for one hotel -->
@@ -20,16 +19,16 @@
     <Name>Hilton Garden Inn</Name>
     <Phone>480-752-2020</Phone>
     <Phone>800-445-8667</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>1429</Number>
       <Street>S Rural Rd</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <!-- ERROR 3: Phone element is missing -->
+  <!-- ERROR 2: NearestAirport attribute is missing (required attribute) -->
   <Hotel>
     <Name>Courtyard Phoenix Tempe Downtown</Name>
     <Address>
@@ -38,114 +37,100 @@
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <Hotel Rating="4.7">
     <Name>Tempe Mission Palms Hotel</Name>
     <Phone>480-894-1400</Phone>
     <Phone>800-547-8705</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>60</Number>
       <Street>E 5th St</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <!-- ERROR 4: Address element has no closing tag -->
-  <!-- ERROR 2: Rating attribute is missing (Rating is optional in XSD, so this doesn't count as missing a required attribute) -->
-  <!-- So for ERROR 2, I'll remove a REQUIRED element instead - but wait, all elements are required per the XSD -->
-  <!-- Actually looking at the XSD, Rating is optional attribute. There are NO required attributes in the schema! -->
-  <!-- So ERROR 2 must mean missing a required ELEMENT, not attribute -->
   <Hotel>
     <Name>Graduate Tempe</Name>
     <Phone>480-967-9431</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>225</Number>
       <Street>E Apache Blvd</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
-    <!-- Missing closing </Address> tag -->
+    <!-- Missing </Address> closing tag -->
   </Hotel>
   <Hotel Rating="4.3">
     <Name>Aloft Tempe</Name>
     <Phone>480-621-3300</Phone>
     <Phone>877-462-5638</Phone>
-    <Phone>480-621-3301</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>951</Number>
       <Street>E Playa Del Norte Dr</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <Hotel Rating="4.6">
     <Name>Moxy Phoenix Tempe ASU</Name>
     <Phone>480-557-8200</Phone>
     <Phone>888-236-2427</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>1333</Number>
       <Street>S Rural Rd</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <Hotel>
     <Name>Residence Inn Phoenix Tempe Downtown University</Name>
     <Phone>480-967-2000</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>510</Number>
       <Street>S Forest Ave</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <Hotel Rating="4.8">
     <Name>AC Hotel Phoenix Tempe Downtown</Name>
     <Phone>480-289-1900</Phone>
     <Phone>888-236-2427</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>810</Number>
       <Street>S Ash Ave</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85281</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
   <Hotel Rating="4.1">
     <Name>Sonesta Simply Suites Phoenix Tempe</Name>
     <Phone>480-820-7500</Phone>
     <Phone>800-766-3782</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>951</Number>
       <Street>S Wendler Dr</Street>
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85282</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
-  <!-- ERROR 2: Missing Name element (a required element) -->
   <Hotel Rating="4.4">
+    <Name>Hampton Inn Phoenix Airport North</Name>
     <Phone>602-244-3505</Phone>
-    <Address>
+    <Address NearestAirport="Phoenix Sky Harbor">
       <Number>4234</Number>
       <Street>S 48th St</Street>
       <City>Phoenix</City>
       <State>AZ</State>
       <Zip>85040</Zip>
-      <NearestAirport>Phoenix Sky Harbor</NearestAirport>
     </Address>
   </Hotel>
 </Hotel>
