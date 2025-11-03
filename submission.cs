@@ -21,8 +21,7 @@ namespace ConsoleApp1
         public static string xmlErrorURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/HotelsErrors.xml";
         public static string xsdURL = "https://raw.githubusercontent.com/IvanB04/cse445-assignmnet4/refs/heads/main/Hotels.xsd";
 
-        
-    public static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Test 1: Verify valid XML
             string result = Verification(xmlURL, xsdURL);
@@ -59,7 +58,7 @@ namespace ConsoleApp1
                     settings.Schemas.Add(schema);
                 }
 
-                // Use a local variable (not global) to capture validation errors
+                // Use a local variable to capture validation errors
                 string errorMessage = string.Empty;
 
                 // Set up validation event handler
@@ -144,34 +143,33 @@ namespace ConsoleApp1
                     jsonBuilder.AppendLine("        ],");
 
                     // Address
-                    // Address
-XmlNode addressNode = hotel.SelectSingleNode("Address");
-if (addressNode != null)
-{
-    jsonBuilder.AppendLine("        \"Address\": {");
-    
-    string number = addressNode.SelectSingleNode("Number")?.InnerText;
-    jsonBuilder.AppendLine($"          \"Number\": \"{EscapeJson(number)}\",");
-    
-    string street = addressNode.SelectSingleNode("Street")?.InnerText;
-    jsonBuilder.AppendLine($"          \"Street\": \"{EscapeJson(street)}\",");
-    
-    string city = addressNode.SelectSingleNode("City")?.InnerText;
-    jsonBuilder.AppendLine($"          \"City\": \"{EscapeJson(city)}\",");
-    
-    string state = addressNode.SelectSingleNode("State")?.InnerText;
-    jsonBuilder.AppendLine($"          \"State\": \"{EscapeJson(state)}\",");
-    
-    string zip = addressNode.SelectSingleNode("Zip")?.InnerText;
-    jsonBuilder.AppendLine($"          \"Zip\": \"{EscapeJson(zip)}\",");
-    
-    // NearestAirport is now an ATTRIBUTE, not an element
-    XmlAttribute airportAttr = addressNode.Attributes["NearestAirport"];
-    string airport = airportAttr?.Value;
-    jsonBuilder.AppendLine($"          \"NearestAirport\": \"{EscapeJson(airport)}\"");
-    
-    jsonBuilder.Append("        }");
-}
+                    XmlNode addressNode = hotel.SelectSingleNode("Address");
+                    if (addressNode != null)
+                    {
+                        jsonBuilder.AppendLine("        \"Address\": {");
+                        
+                        string number = addressNode.SelectSingleNode("Number")?.InnerText;
+                        jsonBuilder.AppendLine($"          \"Number\": \"{EscapeJson(number)}\",");
+                        
+                        string street = addressNode.SelectSingleNode("Street")?.InnerText;
+                        jsonBuilder.AppendLine($"          \"Street\": \"{EscapeJson(street)}\",");
+                        
+                        string city = addressNode.SelectSingleNode("City")?.InnerText;
+                        jsonBuilder.AppendLine($"          \"City\": \"{EscapeJson(city)}\",");
+                        
+                        string state = addressNode.SelectSingleNode("State")?.InnerText;
+                        jsonBuilder.AppendLine($"          \"State\": \"{EscapeJson(state)}\",");
+                        
+                        string zip = addressNode.SelectSingleNode("Zip")?.InnerText;
+                        jsonBuilder.AppendLine($"          \"Zip\": \"{EscapeJson(zip)}\",");
+                        
+                        // NearestAirport is now an ATTRIBUTE, not an element
+                        XmlAttribute airportAttr = addressNode.Attributes["NearestAirport"];
+                        string airport = airportAttr?.Value;
+                        jsonBuilder.AppendLine($"          \"NearestAirport\": \"{EscapeJson(airport)}\"");
+                        
+                        jsonBuilder.Append("        }");
+                    }
 
                     // Rating attribute (optional)
                     XmlAttribute ratingAttr = hotel.Attributes["Rating"];
@@ -227,4 +225,3 @@ if (addressNode != null)
         }
     }
 }
-
